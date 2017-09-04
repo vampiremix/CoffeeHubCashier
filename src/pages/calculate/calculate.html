@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>calculate</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid no-padding gridheight>
+    <ion-row colheight>
+      <ion-col col-5 class="borderCalcS">
+        <ion-list orderMenuHeader>
+          <ion-list-header>
+            <ion-row>
+              <ion-col col-6 verti-align>
+                <h1 align-items-stretch>Menu list</h1>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <button ion-button round icon-start color="danger" (click)="cancelOrder()">
+      <ion-icon name="md-close"></ion-icon>CANCEL
+    </button>
+              </ion-col>
+            </ion-row>
+          </ion-list-header>
+        </ion-list>
+        <ion-scroll scrollY="true" class="heightscrollboxmenulistHS" scrollsize1>
+          <menulist [ordersItem]="ordersPVD.order"></menulist>
+        </ion-scroll>
+      </ion-col>
+      <ion-col col-7 align-self-end colheight>
+
+        <ion-grid gridheight>
+          <ion-row>
+            <ion-col text-center>
+              <button ion-button color="org" round (click)="inputPromotion()">PROMOTION
+                  </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid bottomGrid>
+          <ion-row>
+            <ion-list listPayment>
+
+              <ion-item *ngIf="getpromotion">
+
+                <ion-label color="primary">Promotion :</ion-label>
+                <ion-input type="text" [(ngModel)]="'(Code : ' + getpromotion.code + ') ' + getpromotion.name" disabled="true"></ion-input>
+              </ion-item>
+              <ion-item *ngIf="getpromotion">
+                <ion-label color="primary">Detail :</ion-label>
+                <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input>
+              </ion-item>
+              <ion-item *ngIf="getpromotion">
+                <ion-label color="primary">Period :</ion-label>
+                <ion-input type="text" [(ngModel)]="'From : ' + getpromotion.startdate.$date + ' To : ' + getpromotion.enddate.$date" disabled="true"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="primary">Total cash :</ion-label>
+                <ion-input type="text" readonly [(ngModel)]="total" text-right margin-right style="font-size:25px"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary">Total Cup Coins :</ion-label>
+                <ion-input placeholder="" readonly></ion-input>
+              </ion-item>
+              <ion-item class="fontsizebntnumCalcS">
+                <ion-label color="primary">Received :</ion-label>
+                <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
+                <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
+              </ion-item>
+            </ion-list>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col col-4>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('1')">1</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('4')">4</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('7')">7</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('0')">0</button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('2')">2</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('5')">5</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('8')">8</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('00')">00</button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('3')">3</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('6')">6</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickNum('9')">9</button>
+              <button ion-button block outline class="fontsizebntnumCalcS" (click)="clickDel()">
+                             <ion-icon name="md-backspace"></ion-icon>
+                        </button>
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col col-6>
+              <button ion-button icon-left block class="sizebntCalcS" (click)="calculatePayment()">
+                                  <ion-icon name="ios-cash-outline"></ion-icon>
+                                  Pay with Cash
+                                </button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button icon-left block class="sizebntCalcS">
+                                  <ion-icon name="ios-cafe-outline"></ion-icon>
+                                  Pay with Cup Coins
+                                </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

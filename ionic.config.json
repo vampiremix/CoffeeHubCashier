@@ -1,0 +1,8 @@
+{
+  "name": "CoffeeHub",
+  "app_id": "e54a9601",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
