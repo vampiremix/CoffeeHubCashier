@@ -29,6 +29,8 @@ import { MenulistComponent } from '../components/menulist/menulist';
 import { ProductlistComponent } from '../components/productlist/productlist';
 import { AuthorizationProvider } from '../providers/authorization/authorization';
 import { OrdersProvider } from '../providers/orders/orders';
+import { ProfileProvider } from '../providers/profile/profile';
+import { ShopdetailCardComponent } from '../components/shopdetail-card/shopdetail-card';
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'e54a9601'
@@ -52,7 +54,8 @@ const cloudSettings: CloudSettings = {
     UserComponent,
     PromotionComponent,
     MenulistComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    ShopdetailCardComponent
   ],
   imports: [
     HttpModule,
@@ -85,7 +88,8 @@ const cloudSettings: CloudSettings = {
     PromotionComponent,
     CalculatePage,
     AuthorizationProvider,
-    OrdersProvider
+    OrdersProvider,
+    ProfileProvider
   ]
 })
 export class AppModule { }

@@ -6,81 +6,122 @@
     <ion-title>profile</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <ion-grid>
-    <ion-row class="bgprofilePS">
-      <ion-col col-6>
-        <ion-avatar item-start>
-          <img src="assets/profile3.png">
-        </ion-avatar>
-      </ion-col>
-      <ion-col col-6></ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12>
-        <ion-list>
-          <ion-item class=" borderbottom0pxPS">
-            <i class="fontsizePS">Name :</i>
-            <i class="fontsizePS">Ponlawath</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <i class="fontsizePS">Surname :</i>
-            <i class="fontsizePS">Changkeb</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <i class="fontsizePS">Employee code :</i>
-            <i class="fontsizePS">100000001</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <i class="fontsizePS">Birthday :</i>
-            <i class="fontsizePS">14/May/1996</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class=" borderbottom0pxPS">
-            <ion-icon name="logo-facebook" item-start class="iconfacebook"></ion-icon>
-            <i class="fontsizePS">Facebook :</i>
-            <i class="fontsizePS">Ponlawath Changkeb</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-         <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <ion-icon name="logo-twitter" item-start class="icontwitter"></ion-icon>
-            <i class="fontsizePS">Twitter :</i>
-            <i class="fontsizePS">pure1234567a</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <ion-icon name="logo-google" item-start class="icongoogle"></ion-icon>
-            <i class="fontsizePS">Gmail :</i>
-            <i class="fontsizePS">pure1234567a@gmail.com</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item class="borderbottom0pxPS">
-            <ion-icon name="ios-call" item-start class="iconcall"></ion-icon>
-            <i class="fontsizePS">Tel :</i>
-            <i class="fontsizePS">085-327-1652</i>
-            <ion-icon name="ios-create-outline" item-end></ion-icon>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content padding alignCard scroll="false">
+  <shopdetail-card [user]="user" [shop]="shop"></shopdetail-card>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    <ion-title>PROFILE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="profile-content">
+  <div class="user-details">
+    <ion-row class="user-main-data-row">
+      <ion-col no-padding width-33>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" [(src)]="profile.user.image" alt="profile.user.name" title="profile.user.name"></preload-image>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-row class="social-presence-row">
+          <ion-col width-50 class="social-presence-item">
+            <a (click)="goToFollowersList()">
+              <h2 class="social-presence-value">{{profile.followers.length}}</h2>
+              <h4 class="social-presence-title">{{'FOLLOWERS' | translate }}</h4>
+            </a>
+          </ion-col>
+          <ion-col width-50 class="social-presence-item">
+            <a (click)="goToFollowingList()">
+              <h2 class="social-presence-value">{{profile.following.length}}</h2>
+              <h4 class="social-presence-title">{{'FOLLOWING' | translate }}</h4>
+            </a>
+          </ion-col>
+        </ion-row>
+        <ion-row class="profile-action-row">
+          <ion-col no-padding>
+            <button ion-button block small (click)="goToSettings()">
+              {{'EDIT_PROFILE' | translate}}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row wrap class="user-bio-row">
+      <ion-col no-padding width-50>
+        <h2 class="user-name">{{profile.user.name}}</h2>
+      </ion-col>
+      <ion-col no-padding width-50>
+        <span class="user-location">{{profile.user.location}}</span>
+      </ion-col>
+      <ion-col no-padding width-100>
+        <p class="user-description">
+          {{profile.user.about}}
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-segment class="user-content-segment" [(ngModel)]="display" (ionChange)="onSegmentChanged($event)">
+      <ion-segment-button value="grid" (ionSelect)="onSegmentSelected($event)">
+        {{'GRID' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="list" (ionSelect)="onSegmentSelected($event)">
+        {{'LIST' | translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="display" class="user-content">
+    <div *ngSwitchCase="'list'" class="list-view">
+      <div class="list-item" *ngFor="let post of profile.posts">
+      <span class="item-date">{{post.date}}</span>
+      <ion-card>
+        <preload-image [ratio]="{w:1, h:1}" [src]="post.image" title=""></preload-image>
+        <ion-card-content>
+          <p class="item-text">
+            {{post.description}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding class="actions-row">
+          <ion-col no-padding width-30 text-left>
+            <button class="action-button" ion-button clear small color="danger" icon-left>
+                <ion-icon isActive="{{post.liked}}" name='heart'></ion-icon>
+                  {{post.likes}} {{'LIKES' | translate}}
+              </button>
+          </ion-col>
+          <ion-col no-padding width-45 text-center>
+            <button class="action-button" ion-button clear small color="danger" icon-left>
+                <ion-icon name='chatbubbles'></ion-icon>
+                  {{post.comments}} {{'COMMENTS' | translate}}
+              </button>
+          </ion-col>
+          <ion-col no-padding width-25 text-right>
+            <button class="action-button" ion-button clear small color="danger" icon-left (click)="sharePost(post)">
+                <ion-icon name='share-alt'></ion-icon>
+                {{'SHARE' | translate}}
+              </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+  <div *ngSwitchCase="'grid'" class="grid-view">
+    <ion-row wrap class="grid-row">
+      <ion-col width-33 class="grid-item" *ngFor="let post of profile.posts">
+      <preload-image [ratio]="{w:1, h:1}" [src]="post.image" title="ion2FullApp"></preload-image>
+      </ion-col>
+    </ion-row>
+  </div>
+  </div>
+</ion-content> -->

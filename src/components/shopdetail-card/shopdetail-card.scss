@@ -1,0 +1,55 @@
+shopdetail-card {
+    .bgprofilePS {
+        background-image: url('../../assets/bg6.jpeg');
+        width: 100%;
+    }
+    [colHeight] {
+        min-height: 200px;
+        max-height: 400px;
+    }
+    [positionFront] {
+        position: relative;
+        margin-top: -20%;
+    }
+    .fontsizePS {
+        font-size: 28px;
+    }
+    .bordertop0pxPS {
+        border-top: 0px !important;
+    }
+    .borderbottom0pxPS {
+        border-bottom: 0px !important;
+    }
+    .borderleftPS {
+        border-left: solid !important;
+        border-color: darkgray !important;
+    }
+    .iconfacebook {
+        color: blue;
+    }
+    .icontwitter {
+        color: deepskyblue;
+    }
+    .icongoogle {
+        color: red;
+    }
+    .iconcall {
+        color: green;
+    }
+    [cardSize] {
+        height: 90%;
+        width: 90%;
+    }
+    [imgSize] {
+        height: 30%;
+        width: 30%;
+    }
+    [btnSize] {
+        width: 25%;
+        font-size: 20px;
+    }
+    [listSize] {
+        width: 60%;
+        text-align: center;
+    }
+}

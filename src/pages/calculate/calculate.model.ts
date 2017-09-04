@@ -14,4 +14,5 @@ export class promoArray {
     log: string;
     value: number;
     shop_id: string;
+    image: string;
 }

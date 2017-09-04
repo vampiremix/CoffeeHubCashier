@@ -22,7 +22,8 @@
             "user": {
                 "$oid": "5994125be730751000eae08e"
             },
-            "value": 5
+            "value": 5,
+            "image": "http://analytics.kantarretail.com/img/promotion.png"
         },
         {
             "code": "A5468YE",
@@ -46,7 +47,8 @@
             "user": {
                 "$oid": "59941324e730751000eae08f"
             },
-            "value": 15
+            "value": 15,
+            "image": "http://sashiageru.com/upload_img/0709061004.jpg"
         }
     ]
 }

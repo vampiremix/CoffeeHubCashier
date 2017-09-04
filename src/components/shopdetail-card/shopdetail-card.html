@@ -1,0 +1,32 @@
+<ion-card cardSize>
+  <ion-grid>
+    <ion-row class="bgprofilePS">
+      <ion-col col-12 colHeight>
+      </ion-col>
+    </ion-row>
+    <ion-row positionFront>
+      <ion-col>
+        <ion-avatar item-start padding-bottom>
+          <img imgSize [src]="user.profileImageURL">
+        </ion-avatar>
+        <h1>Shop name : {{shop.name}} ({{shop.shopid}})</h1>
+        <!-- <p>{{shop.address.address}} {{shop.address.province}} {{shop.address.postcode}} Tel. {{shop.phone}} </p> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list margin-bottom listSize>
+    <ion-item>
+      <ion-icon name="md-contact" item-start></ion-icon>
+      <ion-label>Name : {{user.firstName}} {{user.lastName}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="ios-call" item-start></ion-icon>
+      <ion-label>Phone : {{user.phone}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-mail" item-start></ion-icon>
+      <ion-label>Email : {{user.email}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <button ion-button btnSize><ion-icon name="md-build" margin-right></ion-icon> Edit Profile</button>
+</ion-card>

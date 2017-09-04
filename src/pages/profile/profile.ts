@@ -1,3 +1,6 @@
+import { ProfileProvider } from '../../providers/profile/profile';
+import { ShopInfo } from './profile.model';
+import { UserModel } from '../../components/user/user.model';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +16,25 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: UserModel = new UserModel();
+  shop: ShopInfo = new ShopInfo();
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private profilePVD: ProfileProvider) {
+    this.user = JSON.parse(window.localStorage.getItem('user'));
+    this.getShopInfo(this.user.shop_id);
+    console.log("Profile get user : " + JSON.stringify(this.user));
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-  }
 
+  }
+  getShopInfo(shopID) {
+    this.profilePVD.getshop(shopID).then((data) => {
+      this.shop = data;
+      console.log("Log Profile : " + JSON.stringify(data));
+    }).catch((err) => {
+      alert("Cannot get shop detail : " + shopID);
+    })
+  }
 }
