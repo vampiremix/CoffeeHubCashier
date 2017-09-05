@@ -18,6 +18,10 @@ import { PromotionModel, promoArray } from "../calculate/calculate.model";
 })
 export class CalculatePage {
   public getpromotion: promoArray;
+  public promodate: {
+    startDate: string,
+    endDate: string
+  };
   public total = 0;
   private cashReceive: string = "0";
   private cashReceiveShow: string = "0";
@@ -121,6 +125,13 @@ export class CalculatePage {
     this.events.subscribe('getpro', (pro) => {
       console.log('Show pro : ', pro);
       this.getpromotion = pro;
+      let aa: any;
+      aa = new Date(this.getpromotion.startdate);
+      let y = aa.getFullYear();
+      // this.promodate.startDate = this.getpromotion.startdate.getFullYear().toString();
+      console.log("DATE " + y);
+      // this.promodate.endDate = this.getpromotion.enddate.toDateString();
+
       // console.log("++++++++++++++++ " + this.getpromotion.discounttype);
       this.calculate();
     });

@@ -27,7 +27,7 @@
       </ion-col>
       <ion-col col-7 align-self-end colheight>
 
-        <ion-grid gridheight>
+        <ion-grid gridheight no-padding>
           <ion-row>
             <ion-col text-center>
               <button ion-button color="org" round (click)="inputPromotion()">PROMOTION
@@ -38,36 +38,59 @@
 
         <ion-grid bottomGrid>
           <ion-row>
-            <ion-list listPayment>
+            <ion-col>
+              <ion-list listPayment>
 
-              <ion-item *ngIf="getpromotion">
+                <ion-item *ngIf="getpromotion">
+                  <ion-row>
+                    <ion-col col-2>
+                      <div fontColor>
+                        Promotion :</div>
+                    </ion-col>
+                    <ion-col col-10 text-center>
+                      <span>(Code : {{getpromotion.code}}) {{getpromotion.name}}</span>
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+                <ion-item *ngIf="getpromotion">
+                  <ion-row>
+                    <ion-col col-2>
+                      <div fontColor>
+                        Detail :</div>
+                    </ion-col>
+                    <ion-col col-10 text-center>
+                      <span>{{getpromotion.detail}}</span>
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+                <ion-item *ngIf="getpromotion">
+                  <ion-row>
+                    <ion-col col-2>
+                      <div fontColor>
+                        Period :</div>
+                    </ion-col>
+                    <ion-col col-10 text-center>
+                      <span>From {{getpromotion.startdate | date:'dd/MM/yyyy'}} , To {{getpromotion.enddate | date:'dd/MM/yyyy'}}</span>
+                    </ion-col>
+                  </ion-row>
+                  <!-- <ion-input type="text" [(ngModel)]="'From : ' + promodate.startDate + ' To : ' + promodate.endDate" disabled="true"></ion-input> -->
+                </ion-item>
 
-                <ion-label color="primary">Promotion :</ion-label>
-                <ion-input type="text" [(ngModel)]="'(Code : ' + getpromotion.code + ') ' + getpromotion.name" disabled="true"></ion-input>
-              </ion-item>
-              <ion-item *ngIf="getpromotion">
-                <ion-label color="primary">Detail :</ion-label>
-                <ion-input type="text" [(ngModel)]="getpromotion.detail" disabled="true"></ion-input>
-              </ion-item>
-              <ion-item *ngIf="getpromotion">
-                <ion-label color="primary">Period :</ion-label>
-                <ion-input type="text" [(ngModel)]="'From : ' + getpromotion.startdate.$date + ' To : ' + getpromotion.enddate.$date" disabled="true"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label color="primary">Total cash :</ion-label>
-                <ion-input type="text" readonly [(ngModel)]="total" text-right margin-right style="font-size:25px"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label color="primary">Total Cup Coins :</ion-label>
-                <ion-input placeholder="" readonly></ion-input>
-              </ion-item>
-              <ion-item class="fontsizebntnumCalcS">
-                <ion-label color="primary">Received :</ion-label>
-                <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
-                <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
-              </ion-item>
-            </ion-list>
+                <ion-item>
+                  <ion-label color="primary">Total cash :</ion-label>
+                  <ion-input type="text" readonly [(ngModel)]="total" text-right margin-right style="font-size:25px"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label color="primary">Total Cup Coins :</ion-label>
+                  <ion-input placeholder="" readonly></ion-input>
+                </ion-item>
+                <ion-item class="fontsizebntnumCalcS">
+                  <ion-label color="primary">Received :</ion-label>
+                  <ion-input type="text" [(ngModel)]="cashReceiveShow" text-right style="font-size:25px"></ion-input>
+                  <button ion-button color="danger" item-right (click)="clickClear()" round>CLEAR</button>
+                </ion-item>
+              </ion-list>
+            </ion-col>
           </ion-row>
           <ion-row no-padding>
             <ion-col col-4>
