@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { OrderItemModel } from '../../pages/home/home.model'
+import { OrderItemModel } from '../../pages/home/home.model';
 /*
   Generated class for the OrdersProvider provider.
 
@@ -10,6 +10,18 @@ import { OrderItemModel } from '../../pages/home/home.model'
 */
 @Injectable()
 export class OrdersProvider {
+
+  //////////////////// Declaration //////////////////////////
+  apiUrl: string = 'https://coffeehub.herokuapp.com/';
+  headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
+  optionsURL = new RequestOptions({
+    headers: this.headers
+  });
+
+  //////////////////// Declaration //////////////////////////
   // public order: OrdersModel = new OrdersModel();
   public order: Array<any> = [];
   public orderSend: OrderItemModel = new OrderItemModel();
@@ -42,6 +54,6 @@ export class OrdersProvider {
     }
     this.orderSend.item = items;
     console.log(">>>>>>>>" + JSON.stringify(this.orderSend));
+    return this.orderSend as OrderItemModel;
   }
-
 }

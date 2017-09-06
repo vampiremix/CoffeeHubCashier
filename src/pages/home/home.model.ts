@@ -12,6 +12,7 @@ export class OrderItemModel {
     receiptNo: string;
     change: number;
     cash: number;
+    status: string;
 }
 
 export class itemArray {

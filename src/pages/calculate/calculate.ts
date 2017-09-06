@@ -57,10 +57,10 @@ export class CalculatePage {
       // Send Total amount , cash from cus , cash change
       let cashChange = parseInt(this.cashReceive) - this.total;
       console.log("total : " + this.total + "\n cash : " + this.cashReceive + "\n cashChange : " + cashChange);
-      this.ordersPVD.preparingOrders(this.total, this.cashReceive, cashChange);
+      let rs = this.ordersPVD.preparingOrders(this.total, this.cashReceive, cashChange);
 
-
-      // this.navCtrl.push(ReceiptPage);
+      alert(" RS : " + JSON.stringify(rs));
+      this.navCtrl.push(ReceiptPage,{orderToreceipt:rs});
     }
 
   }
